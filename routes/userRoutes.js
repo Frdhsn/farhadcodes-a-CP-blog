@@ -4,7 +4,7 @@ var router = express.Router();
 
 // need to refactor
 
-module.exports = (app) => {
+exports.userrouter = () => {
   router.
     route("/")
     .post(users.createUser)
@@ -14,5 +14,4 @@ module.exports = (app) => {
     .get(users.getUser)
     .put(users.updateUser)
     .delete(users.deleteUser);
-  app.use("/api/v1/users", router);
 };
