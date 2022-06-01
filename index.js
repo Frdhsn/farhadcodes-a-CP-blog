@@ -1,41 +1,14 @@
 const express = require("express");
+//const fs = require("fs");
 const app = express();
-const mysql = require('mysql');
-
-// DB Start
-// create connection
-
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: ''
+app.use(express.json());
+const db = require("./models/dbconnect");
+db.sequelize.sync();
+//console.log("The table for the User model was just (re)created!");
+require("./routes/storyRoutes")(app);
+require("./routes/userRoutes")(app);
+//const stories = JSON.parse(fs.readFileSync(`${__dirname}/dev-data/tempdata.json`));
+const port = 3005;
+app.listen(port, () => {
+  console.log(`App running on port ${port}...`);
 });
-
-// connect to MySQL
-
-db.connect( err => {
-    if(err){
-        throw err
-    }
-    console.log('MySQL Connected');
-});
-
-// Create Database
-
-app.get('/createdb',(req,res)=>{
-    let sql = 'CREATE DATABASE farhadcodesdb';
-
-    db.query(sql, err=>{
-        if(err){
-            throw err;
-        }
-        res.send("Database Created");
-    });
-});
-// DB END
-const userRoute = require("./routes/User");
-app.use("/user",userRoute);
-
-app.listen(3005,() => {
-    console.log("Server running on port 3005");
-})
