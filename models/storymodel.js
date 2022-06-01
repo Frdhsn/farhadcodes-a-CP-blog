@@ -1,5 +1,6 @@
 const Sequelize = require("sequelize");
 
+// need to change it
 module.exports = (sequelize) => {
   const story = sequelize.define("story", {
     id: {
