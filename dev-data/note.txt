@@ -1,0 +1,14 @@
+story points
+    1. get all stories
+    2. get a story
+    2. post a story
+    3. update a story
+    4. delete a story
+user points
+    1. 
+
+
+
+DB table:
+story
+id(primary key)-title-description-topic-difficulty-authorID(foreing key)
