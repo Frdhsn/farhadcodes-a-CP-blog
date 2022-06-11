@@ -1,16 +1,12 @@
-const stories = require("../controllers/storyController.js");
-var router = require("express").Router();
+const router = require('express').Router();
+const stories = require('../controllers/storyController');
 
-// need to refactor
-exports.storyrouter = () => {
-  router
-  .route("/")
-  .post(stories.createStory)
-  .get(stories.getAllStory);
-  
-  router
-  .route("/:id")
-  .get(stories.getStory)
-  .put(stories.updateStory)
-  .delete(stories.deleteStory);
-};
+router.route('/').post(stories.createStory).get(stories.getAllStory);
+
+router
+    .route('/:id')
+    .get(stories.getStory)
+    .put(stories.updateStory)
+    .delete(stories.deleteStory);
+
+module.exports = router;
