@@ -1,18 +1,25 @@
-const express = require("express");
-//const fs = require("fs");
+const express = require('express');
+const stories = require('./routes/storyRoutes');
+const users = require('./routes/userRoutes');
+const db = require('./models/dbconnect');
+const AppError = require('./utils/appError');
+const globalErrorHandler = require('./controllers/errorController');
+//const winston = require("winston/lib/winston/config");
 const app = express();
-app.use(express.json());
-const db = require("./models/dbconnect");
 db.sequelize.sync();
-//console.log("The table for the User model was just (re)created!");
-const st = require("./routes/storyRoutes");
-const us = require("./routes/userRoutes");
-//const stories = JSON.parse(fs.readFileSync(`${__dirname}/dev-data/tempdata.json`));
 
-app.use("/api/v1/stories", st.storyrouter);
-app.use("/api/v1/stories", us.userrouter);
+//app.user(winston("dev"));
+app.use(express.json());
+app.use('/api/v1/stories', stories);
+app.use('/api/v1/users', users);
+
+// unhandled requests
+app.all('*', (req, res, next) => {
+    next(new AppError(`Can't find ${req.originalUrl} on this server!`));
+});
+app.use(globalErrorHandler);
 
 const port = 3005;
 app.listen(port, () => {
-  console.log(`App running on port ${port}...`);
+    console.log(`App running on port ${port}...`);
 });

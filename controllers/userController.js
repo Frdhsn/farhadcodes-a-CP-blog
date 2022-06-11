@@ -1,21 +1,67 @@
-const db = require("../models/dbconnect");
-const UserService = require("../services/userServices.js");
-const user = db.users;
+const db = require('../models/dbconnect');
+const UserService = require('../services/userServices');
 
-const userService = new UserService(user);
+const User = db.users;
 
-exports.createUser = (req, res) => {
-  userService.createUser(req, res);
+const userService = new UserService(User);
+
+exports.createUser = async (req, res, next) => {
+    try {
+        const userData = await userService.createUser(req, res);
+        return res.status(201).json({
+            status: 'success',
+            message: 'User created successfully',
+            data: userData
+        });
+    } catch (err) {
+        next(err);
+    }
 };
-exports.getUser = (req, res) => {
-  userService.getUser(req, res);
+exports.getUser = async (req, res, next) => {
+    try {
+        const userData = await userService.getUser(req, res);
+        return res.status(200).json({
+            status: 'success',
+            message: 'User fetched successfully',
+            data: userData
+        });
+    } catch (err) {
+        next(err);
+    }
 };
-exports.getAllUser = (req, res) => {
-  userService.getAllUser(req, res);
+exports.getAllUser = async (req, res, next) => {
+    try {
+        const usersData = await userService.getAllUser(req, res);
+        return res.status(200).json({
+            status: 'success',
+            message: 'Users fetched',
+            data: usersData
+        });
+    } catch (err) {
+        next(err);
+    }
 };
-exports.updateUser = (req, res) => {
-  userService.updateUser(req, res);
+exports.updateUser = async (req, res, next) => {
+    try {
+        const userData = await userService.updateUser(req, res);
+        return res.status(200).json({
+            status: 'success',
+            message: 'User is updated',
+            data: userData
+        });
+    } catch (err) {
+        next(err);
+    }
 };
-exports.deleteUser = (req, res) => {
-  userService.deleteUser(req, res);
+exports.deleteUser = async (req, res, next) => {
+    try {
+        const userData = await userService.deleteUser(req, res);
+        return res.status(204).json({
+            status: 'success',
+            message: 'User is delete',
+            data: userData
+        });
+    } catch (err) {
+        next(err);
+    }
 };

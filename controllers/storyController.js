@@ -1,25 +1,74 @@
-const db = require("../models/dbconnect.js");
-const StoryService = require("../services/storyServices.js");
+const db = require('../models/dbconnect');
+const StoryService = require('../services/storyServices');
+
 const Story = db.stories;
 
 const storyService = new StoryService(Story); // dependency injection
 
-exports.createStory = (req, res) => {
-  storyService.createStory(req, res);
+exports.createStory = async (req, res, next) => {
+    try {
+        const story = await storyService.createStory(req, res);
+        // can be written as a utility function
+        return res.status(201).json({
+            status: 'success',
+            message: 'Story created successfully',
+            data: story
+        });
+    } catch (err) {
+        next(err);
+    }
 };
 
-exports.getAllStory = (req, res) => {
-  storyService.getAllStory(req, res);
+exports.getAllStory = async (req, res, next) => {
+    try {
+        const stories = await storyService.getAllStory(req, res);
+        // can be written as a utility function
+        return res.status(200).json({
+            status: 'success',
+            message: 'Stories fetched.',
+            data: stories
+        });
+    } catch (err) {
+        next(err);
+    }
 };
 
-exports.getStory = (req, res) => {
-  storyService.getStory(req, res);
+exports.getStory = async (req, res, next) => {
+    try {
+        const story = await storyService.getStory(req, res);
+        // can be written as a utility function
+        return res.status(200).json({
+            status: 'success',
+            message: 'Story fetched',
+            data: story
+        });
+    } catch (err) {
+        next(err);
+    }
 };
 
-exports.updateStory = (req, res) => {
-  storyService.updateStory(req, res);
+exports.updateStory = async (req, res, next) => {
+    try {
+        await storyService.updateStory(req, res);
+        // can be written as a utility function
+        return res.status(200).json({
+            status: 'success',
+            message: 'Story Updated'
+        });
+    } catch (err) {
+        next(err);
+    }
 };
 
-exports.deleteStory = (req, res) => {
-  storyService.deleteStory(req, res);
+exports.deleteStory = async (req, res, next) => {
+    try {
+        await storyService.deleteStory(req, res);
+        // can be written as a utility function
+        return res.status(204).json({
+            status: 'success',
+            message: 'Story Deleted'
+        });
+    } catch (err) {
+        next(err);
+    }
 };
