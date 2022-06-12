@@ -10,53 +10,32 @@ class userServices {
             email,
             password
         };
-        try {
-            const userData = await this.userTable.create(newUser);
-            return userData;
-        } catch (err) {
-            console.log(err);
-        }
+        const userData = await this.userTable.create(newUser);
+        return userData;
     };
     getUser = async (req, res) => {
         const id = req.params.id;
-        try {
-            const userData = await this.userTable.findAll({
-                where: { id: id }
-            });
-            return userData;
-        } catch (err) {
-            console.log(err);
-        }
+        const userData = await this.userTable.findAll({
+            where: { id: id }
+        });
+        return userData;
     };
     getAllUser = async (req, res) => {
-        try {
-            const userData = await this.userTable.findAll();
-            return userData;
-        } catch (err) {
-            console.log(err);
-        }
+        const userData = await this.userTable.findAll();
+        return userData;
     };
     updateUser = async (req, res) => {
         const id = req.params.id;
-        try {
-            const userData = await this.userTable.update(req.body, {
-                where: { id: id }
-            });
-            return userData;
-        } catch (err) {
-            console.log(err);
-        }
+        const userData = await this.userTable.update(req.body, {
+            where: { id: id }
+        });
     };
     deleteUser = async (req, res) => {
         const id = req.params.id;
-        try {
-            const userData = await this.userTable.destroy({
-                where: { id: id }
-            });
-            return userData;
-        } catch (err) {
-            console.log(err);
-        }
+        const userData = await this.userTable.destroy({
+            where: { id: id }
+        });
+        return userData;
     };
 }
 
