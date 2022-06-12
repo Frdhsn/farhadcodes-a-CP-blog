@@ -15,49 +15,35 @@ class storyService {
             difficulty
         };
 
-        try {
-            const data = await this.storyTable.create(newStory);
-            return data;
-        } catch (err) {
-            console.log(err);
-        }
+        const data = await this.storyTable.create(newStory);
+        return data;
     };
 
     getAllStory = async (req, res) => {
-        try {
-            const data = await this.storyTable.findAll();
-            return data;
-        } catch (err) {
-            console.log(err);
-        }
+        const data = await this.storyTable.findAll();
+        return data;
     };
 
     getStory = async (req, res) => {
-        try {
-            const id = req.params.id;
-            const data = await this.storyTable.findAll({ where: { id: id } });
-            return data;
-        } catch (err) {
-            console.log(err);
-        }
+        const id = req.params.id;
+        const data = await this.storyTable.findAll({ where: { id: id } });
+        return data;
     };
 
     updateStory = async (req, res) => {
-        try {
-            const id = req.params.id;
-            await this.storyTable.update({ where: { id: id } });
-        } catch (err) {
-            console.log(err);
-        }
+        const id = req.params.id;
+        const data = await this.storyTable.update(req.body, {
+            where: { id }
+        });
+        return data;
     };
 
     deleteStory = async (req, res) => {
-        try {
-            const id = req.params.id;
-            await this.storyTable.destroy({ where: { id: id } });
-        } catch (err) {
-            console.log(err);
-        }
+        const id = req.params.id;
+        const data = await this.storyTable.destroy({
+            where: { id: id }
+        });
+        return data;
     };
 }
 
