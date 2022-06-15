@@ -1,91 +1,99 @@
 [
-    {
-        "authorID": 1,
-        "title": "Minimum Stack",
-        "description": "In this article we will consider three problems: first we will modify a stack in a way that allows us to find the smallest element of the stack",
-        "topic": "Data Structure",
-        "difficulty": "medium"
-    },
-    {
-        "authorID": 1,
-        "title": "Disjoint Set Union",
-        "description": "This article discusses the data structure Disjoint Set Union or DSU. Often it is also called Union Find because of its two main operations.",
-        "topic": "dsu",
-        "difficulty": "medium"
-    },
-    {
-        "authorID": 1,
-        "title": "Treap (Cartesian tree)",
-        "description": "A treap is a data structure which combines binary tree and binary heap (hence the name: tree + heap  Treap).",
-        "topic": "Data Structure",
-        "difficulty": "hard"
-    },
-    {
-        "authorID": 3,
-        "title": "Fenwick Tree",
-        "description": "Fenwick tree was first described in a paper titled \"A new data structure for cumulative frequency tables\" (Peter M. Fenwick, 1994).",
-        "topic": "Data Structure",
-        "difficulty": "medium"
-    },
-    {
-        "authorID": 3,
-        "title": "Sqrt Tree",
-        "description": "We cannot answer only the queries that entirely fit in one block. But what if we build the same structure as described above for each block? Yes, we can do it. And we do it recursively, until we reach the block size of  or . Answers for such blocks can be calculated easily in .",
-        "topic": "Data Structure",
-        "difficulty": "medium"
-    },
-    {
-        "authorID": 3,
-        "title": "Randomized Heap",
-        "description": "A randomized heap is a heap that, through using randomization, allows to perform all operations in expected logarithmic time. A min heap is a binary tree in which the value of each vertex is less than or equal to the values of its children. Thus the minimum of the tree is always in the root vertex. A max heap can be defined in a similar way: by replacing less with greater",
-        "topic": "Data Structure",
-        "difficulty": "hard"
-    },
-    {
-        "authorID": 4,
-        "title": "Star and bars",
-        "description": "Stars and bars is a mathematical technique for solving certain combinatorial problems. It occurs whenever you want to count the number of ways to group identical objects",
-        "topic": "Combinatorics",
-        "difficulty": "medium"
-    },
-    {
-        "name": "simantaturja",
-        "email": "simantaturja@gmail.com",
-        "password": "simantaturja"
-    },
-    {
-        "name": "Murad Hossen",
-        "email": "murad@gmail.com",
-        "password": "murad"
-    },
-    {
-        "name": "Tashfiq Ahmed",
-        "email": "tashfiq@gmail.com",
-        "password": "tashfiq"
-    },
-    {
-        "name": "Akash Lanard",
-        "email": "akash@gmail.com",
-        "password": "akash"
-    },
-    {
-        "name": "Tanima Ahmed",
-        "email": "tanima@gmail.com",
-        "password": "tanima"
-    },
-    {
-        "name": "Sajid Ahmed",
-        "email": "sajid@gmail.com",
-        "password": "sajid"
-    },
-    {
-        "name": "Saifur",
-        "email": "saifur@gmail.com",
-        "password": "saifur"
-    },
-    {
-        "name": "Priyo Ahmed",
-        "email": "priyo@gmail.com",
-        "password": "priyo"
-    }
+  {
+    "authorID": 1,
+    "title": "Minimum Stack",
+    "description": "In this article we will consider three problems: first we will modify a stack in a way that allows us to find the smallest element of the stack",
+    "topic": "Data Structure",
+    "difficulty": "medium"
+  },
+  {
+    "authorID": 1,
+    "title": "Disjoint Set Union",
+    "description": "This article discusses the data structure Disjoint Set Union or DSU. Often it is also called Union Find because of its two main operations.",
+    "topic": "dsu",
+    "difficulty": "medium"
+  },
+  {
+    "authorID": 1,
+    "title": "Treap (Cartesian tree)",
+    "description": "A treap is a data structure which combines binary tree and binary heap (hence the name: tree + heap  Treap).",
+    "topic": "Data Structure",
+    "difficulty": "hard"
+  },
+  {
+    "authorID": 3,
+    "title": "Fenwick Tree",
+    "description": "Fenwick tree was first described in a paper titled \"A new data structure for cumulative frequency tables\" (Peter M. Fenwick, 1994).",
+    "topic": "Data Structure",
+    "difficulty": "medium"
+  },
+  {
+    "authorID": 3,
+    "title": "Sqrt Tree",
+    "description": "We cannot answer only the queries that entirely fit in one block. But what if we build the same structure as described above for each block? Yes, we can do it. And we do it recursively, until we reach the block size of  or . Answers for such blocks can be calculated easily in .",
+    "topic": "Data Structure",
+    "difficulty": "medium"
+  },
+  {
+    "authorID": 3,
+    "title": "Randomized Heap",
+    "description": "A randomized heap is a heap that, through using randomization, allows to perform all operations in expected logarithmic time. A min heap is a binary tree in which the value of each vertex is less than or equal to the values of its children. Thus the minimum of the tree is always in the root vertex. A max heap can be defined in a similar way: by replacing less with greater",
+    "topic": "Data Structure",
+    "difficulty": "hard"
+  },
+  {
+    "authorID": 4,
+    "title": "Star and bars",
+    "description": "Stars and bars is a mathematical technique for solving certain combinatorial problems. It occurs whenever you want to count the number of ways to group identical objects",
+    "topic": "Combinatorics",
+    "difficulty": "medium"
+  },
+  {
+    "name": "simantaturja",
+    "email": "simantaturja@gmail",
+    "password": "simantaturjaX",
+    "passwordConfirm": "simantaturjaX"
+  },
+  {
+    "name": "Murad Hossen",
+    "email": "murad@gmail.com",
+    "password": "muradmuradmurad",
+    "passwordConfirm": "muradmurad"
+  },
+  {
+    "name": "Tashfiq Ahmed",
+    "email": "tashfiq@gmail.com",
+    "password": "tashfiqtashfiq",
+    "passwordConfirm": "tashfiqtashfiq"
+  },
+  {
+    "name": "Akash Lanard",
+    "email": "akash@gmail.com",
+    "password": "akashakash",
+    "passwordConfirm": "akashakash"
+  },
+  {
+    "name": "Tanima Ahmed",
+    "email": "tanima@gmail.com",
+    "password": "tanimatanima",
+    "passwordConfirm": "tanimatanima"
+  },
+  {
+    "name": "Sajid Ahmed",
+    "email": "sajid@gmail.com",
+    "password": "sajidsajid",
+    "passwordConfirm": "sajidsajid"
+  },
+  {
+    "name": "Saifur",
+    "email": "saifur@gmail.com",
+    "password": "saifursaifur",
+    "passwordConfirm": "saifursaifur"
+  },
+  {
+    "name": "Priyo Ahmed",
+    "email": "priyo@gmail.com",
+    "password": "priyopriyo",
+    "passwordConfirm": "priyopriyo"
+  }
 ]
