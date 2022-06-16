@@ -3,6 +3,8 @@ const UserService = require('../services/userServices');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/AppError');
 const contentNegotiate = require('../utils/sendResponse');
+const bcrypt = require('bcrypt');
+
 //const globalErrorHandler = require('./errorController');
 
 const User = db.users;
@@ -10,6 +12,9 @@ const User = db.users;
 const userService = new UserService(User);
 
 exports.createUser = catchAsync(async (req, res, next) => {
+  // password hash
+  req.body.password = await bcrypt.hash(req.body.password, 10);
+
   const userData = await userService.createUser(req.body);
   contentNegotiate.sendResponse(req, res, 201, userData, 'User Created Successfully');
 });

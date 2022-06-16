@@ -11,7 +11,7 @@ router.route('/').post(users.createUser).get(users.getAllUser);
 router
   .route('/:id')
   .get(users.getUser)
-  .put(users.updateUser)
-  .delete(users.deleteUser);
+  .put(authController.protect, users.updateUser)
+  .delete(authController.protect, users.deleteUser);
 
 module.exports = router;
