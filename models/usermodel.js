@@ -27,33 +27,27 @@ module.exports = (sequelize) => {
     },
     password: {
       type: Sequelize.STRING,
+      allowNull: false,
       validate: {
-        len: [4, 20],
         notEmpty: true,
-        // matches(val) {
-        //   if (this.passwordConfirm !== val) {
-        //     throw new Error("PasswordX doesn't match");
+        // isEqual(el) {
+        //   if (el !== this.passwordConfirm) {
+        //     throw new Error('Password doesnt match!');
         //   }
         // },
       },
     },
-    // passwordConfirm: {
-    //   type: Sequelize.VIRTUAL,
-    //   //allowNull: false,
-    //   validate: {
-    //     len: [4, 20],
-    //     // isLongEnough: function (val) {
-    //     //   if (val.length < 8) {
-    //     //     throw new Error('Please choose a longer password');
-    //     //   }
-    //     // },
-    //     matches() {
-    //       if (this.password !== this.passwordConfirm) {
-    //         throw new Error("PasswordsConfirm doesn't match");
-    //       }
-    //     },
-    //   },
-    // },
+    passwordConfirm: {
+      type: Sequelize.STRING,
+      //allowNull: false,
+      // validate: {
+      //   isEqual(el) {
+      //     if (el !== this.password) {
+      //       throw new Error('Password doesnt match!');
+      //     }
+      //   },
+      // },
+    },
   });
   return user;
 };
