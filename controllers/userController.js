@@ -5,14 +5,12 @@ const AppError = require('../utils/AppError');
 const contentNegotiate = require('../utils/sendResponse');
 const bcrypt = require('bcrypt');
 
-//const globalErrorHandler = require('./errorController');
-
 const User = db.users;
 
 const userService = new UserService(User);
 
 exports.createUser = catchAsync(async (req, res, next) => {
-  // password hash
+  // password hashed
   req.body.password = await bcrypt.hash(req.body.password, 10);
 
   const userData = await userService.createUser(req.body);

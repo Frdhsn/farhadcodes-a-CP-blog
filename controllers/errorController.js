@@ -18,7 +18,7 @@ const sendErrorDev = (err, res) => {
   });
 };
 const sendErrorProd = (err, res) => {
-  // Operational. trusted erro: semd , message to client
+  // Operational. trusted error: semd , message to client
   if (err.isOperational) {
     // message is not working
     res.status(err.statusCode).json({
