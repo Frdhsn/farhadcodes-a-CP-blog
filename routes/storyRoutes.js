@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const stories = require('../controllers/storyController');
 const authController = require('../controllers/authController');
-
+// story protection
 router.route('/').post(authController.protect, stories.createStory).get(stories.getAllStory); // middleware
 
 router
