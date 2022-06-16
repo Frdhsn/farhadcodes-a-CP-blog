@@ -56,21 +56,16 @@ exports.login = catchAsync(async (req, res, next) => {
 
 exports.protect = catchAsync(async (req, res, next) => {
   let token;
-  //console.log(`req headers ` + req.headers);
-  //console.log(req.headers);
-  //console.log(`req headers auth ` + req.headers.authorization);
   //1) getting token and check of its there
   if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
     token = req.headers.authorization.split(' ')[1];
   }
-  // console.log(`token is ` + token);
 
   if (!token) {
     return next(new AppError(`You're not logged in! Please log in to get access.`, 401));
   }
 
   //2) Verification
-  //console.log(`-------------------lalalalala`);
 
   const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET); // not have a clear idea how it works
 

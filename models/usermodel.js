@@ -30,7 +30,7 @@ module.exports = (sequelize) => {
       allowNull: false,
       validate: {
         notEmpty: true,
-        // isEqual(el) {
+        // isEqual(el) {  aa
         //   if (el !== this.passwordConfirm) {
         //     throw new Error('Password doesnt match!');
         //   }
