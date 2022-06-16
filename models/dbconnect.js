@@ -16,8 +16,8 @@ const sequelize = new Sequelize(config.DB, config.USER, config.PASSWORD, {
 
 (async () => {
   try {
-    await sequelize.sync({})();
-    //await sequelize.sync({ force: true })();
+    //await sequelize.sync({})();
+    await sequelize.sync({ force: true })();
     //await sequelize.sync({ alter: true })();
     console.log('The connection has been successfully established......');
   } catch (error) {
