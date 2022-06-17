@@ -30,24 +30,25 @@ module.exports = (sequelize) => {
       allowNull: false,
       validate: {
         notEmpty: true,
-        // isEqual(el) {  aa
+        // isEqual(el) {
+
         //   if (el !== this.passwordConfirm) {
         //     throw new Error('Password doesnt match!');
         //   }
         // },
       },
     },
-    passwordConfirm: {
-      type: Sequelize.STRING,
-      //allowNull: false,
-      // validate: {
-      //   isEqual(el) {
-      //     if (el !== this.password) {
-      //       throw new Error('Password doesnt match!');
-      //     }
-      //   },
-      // },
-    },
+    // passwordConfirm: {
+    //   type: Sequelize.STRING,
+    //   //allowNull: false,
+    //   // validate: {
+    //   //   isEqual(el) {
+    //   //     if (el !== this.password) {
+    //   //       throw new Error('Password doesnt match!');
+    //   //     }
+    //   //   },
+    //   // },
+    // },
   });
   return user;
 };
