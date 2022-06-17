@@ -22,7 +22,7 @@ class userServices {
   getAllUser = async () => {
     const userData = await this.userTable.findAll({
       attributes: {
-        exclude: ['password'],
+        exclude: ['password', 'passwordConfirm'],
         // without password
       },
     });
