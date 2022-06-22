@@ -1,9 +1,12 @@
+const bcrypt = require('bcrypt');
+
 class userServices {
   constructor(table) {
     this.userTable = table;
   }
   createUser = async (userBody) => {
-    const { name, email, password } = userBody;
+    const password = await bcrypt.hash(userBody.password, 10);
+    const { name, email } = userBody;
     const newUser = {
       name,
       email,

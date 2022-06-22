@@ -9,7 +9,7 @@ const userService = new UserService(User);
 
 exports.signup = catchAsync(async (req, res) => {
   // password hash
-  req.body.password = await bcrypt.hash(req.body.password, 10);
+  //req.body.password = await bcrypt.hash(req.body.password, 10);
   const newUser = await userService.createUser(req.body); // has security issue
 
   const token = signToken(newUser.id);

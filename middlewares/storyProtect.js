@@ -20,7 +20,7 @@ exports.Protect = catchAsync(async (req, res, next) => {
 
   // for create a story
   if (req.body.authorID && decoded.id !== req.body.authorID) {
-    return next(new AppError(`You don't have the permissionYYYYYYYYYYYY`, 403));
+    return next(new AppError(`You don't have the permission`, 403));
   }
   if (req.params.id) {
     // for update and delete
@@ -30,7 +30,7 @@ exports.Protect = catchAsync(async (req, res, next) => {
     }
 
     if (storyData.authorID != decoded.id) {
-      return next(new AppError(`You don't have the permissionXXXXXXXX`, 403));
+      return next(new AppError(`You don't have the permission`, 403));
     }
   }
   next();
