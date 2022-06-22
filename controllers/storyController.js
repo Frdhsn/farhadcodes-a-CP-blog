@@ -17,7 +17,7 @@ exports.createStory = catchAsync(async (req, res, next) => {
 exports.getAllStory = catchAsync(async (req, res, next) => {
   const stories = await storyService.getAllStory();
 
-  contentNegotiate.sendResponse(req, res, 200, stories, 'Stories are created');
+  contentNegotiate.sendResponse(req, res, 200, stories, 'Stories are fetched');
 });
 
 exports.getStory = catchAsync(async (req, res, next) => {
@@ -34,7 +34,7 @@ exports.updateStory = catchAsync(async (req, res, next) => {
   if (!story[0]) {
     return next(new AppError('No Story was found with that ID', 404));
   }
-  contentNegotiate.sendResponse(req, res, 200, story, 'Story is Updated');
+  contentNegotiate.sendResponse(req, res, 200, {}, 'Story is Updated');
 });
 
 exports.deleteStory = catchAsync(async (req, res, next) => {

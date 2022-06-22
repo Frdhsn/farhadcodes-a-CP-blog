@@ -10,6 +10,7 @@ const handleCastErrorDB = (err) => {
 };
 
 const sendErrorDev = (err, res) => {
+  //console.log(`------------the error is here---------------------`);
   res.status(err.statusCode).json({
     status: err.status,
     error: err,
