@@ -1,13 +1,14 @@
 const router = require('express').Router();
 const stories = require('../controllers/storyController');
-const authController = require('../controllers/authController');
+const storyMiddleware = require('../middlewares/storyProtect');
+const userMiddleware = require('../middlewares/userProtect');
 // story protection
-router.route('/').post(authController.protect, stories.createStory).get(stories.getAllStory); // middleware
+router.route('/').post(userMiddleware.Protect, storyMiddleware.Protect, stories.createStory).get(stories.getAllStory);
 
 router
   .route('/:id')
   .get(stories.getStory)
-  .put(authController.protect, stories.updateStory)
-  .delete(authController.protect, stories.deleteStory);
+  .put(userMiddleware.Protect, storyMiddleware.Protect, stories.updateStory)
+  .delete(userMiddleware.Protect, storyMiddleware.Protect, stories.deleteStory);
 
 module.exports = router;

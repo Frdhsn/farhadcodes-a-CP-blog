@@ -8,13 +8,9 @@ const globalErrorHandler = require('./controllers/errorController');
 //const winston = require("winston/lib/winston/config");
 const app = express();
 db.sequelize.sync();
-//app.user(winston("dev"));
+
 app.use(express.json());
-// another middleware
-app.use((req, res, next) => {
-  console.log(req.headers);
-  next();
-});
+
 app.use('/api/v1/stories', stories);
 app.use('/api/v1/users', users);
 

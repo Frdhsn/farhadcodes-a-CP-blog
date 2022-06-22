@@ -3,19 +3,11 @@ const UserService = require('../services/userServices');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/AppError');
 const contentNegotiate = require('../utils/sendResponse');
-const bcrypt = require('bcrypt');
 
 const User = db.users;
 
 const userService = new UserService(User);
 
-exports.createUser = catchAsync(async (req, res, next) => {
-  // password hashed
-  req.body.password = await bcrypt.hash(req.body.password, 10);
-
-  const userData = await userService.createUser(req.body);
-  contentNegotiate.sendResponse(req, res, 201, userData, 'User Created Successfully');
-});
 exports.getUser = catchAsync(async (req, res, next) => {
   const userData = await userService.getUser(req.params.id);
   if (!userData) {
@@ -33,7 +25,7 @@ exports.updateUser = catchAsync(async (req, res, next) => {
   if (!userData[0]) {
     return next(new AppError('No user was found with that ID', 404));
   }
-  contentNegotiate.sendResponse(req, res, 200, userData, 'User is Updated!');
+  contentNegotiate.sendResponse(req, res, 200, {}, 'User is Updated!');
 });
 exports.deleteUser = catchAsync(async (req, res, next) => {
   const userData = await userService.deleteUser(req.params.id);
