@@ -27,7 +27,14 @@ class storyService {
     return data;
   }
   async updateStory(id, storyBody) {
-    const data = await this.storyTable.update(storyBody, {
+    const { title, description, topic, difficulty } = storyBody;
+    const temp = {
+      title,
+      description,
+      topic,
+      difficulty,
+    };
+    const data = await this.storyTable.update(temp, {
       where: { id },
     });
     return data;
@@ -36,6 +43,15 @@ class storyService {
     const data = await this.storyTable.destroy({
       where: { id },
     });
+    return data;
+  }
+  async getAuthorIdByStoryId(id) {
+    const data = await this.storyTable.findOne({
+      where: {
+        id,
+      },
+    });
+    //console.log(data);
     return data;
   }
 }

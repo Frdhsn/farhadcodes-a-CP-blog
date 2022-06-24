@@ -1,25 +1,18 @@
-const { promisify } = require('util');
-const jwt = require('jsonwebtoken');
 const db = require('../models/dbconnect');
 const catchAsync = require('../utils/catchAsync');
 const UserService = require('../services/userServices');
-const AppError = require('../utils/appError');
-
+const AppError = require('../utils/AppError');
+const bcrypt = require('bcrypt');
+const { signToken } = require('../utils/generateToken');
 const User = db.users;
 const userService = new UserService(User);
 
-const signToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRES_IN,
-  });
-};
-exports.signup = catchAsync(async (req, res, next) => {
+exports.signup = catchAsync(async (req, res) => {
+  // password hash
+  //req.body.password = await bcrypt.hash(req.body.password, 10);
   const newUser = await userService.createUser(req.body); // has security issue
-  // console.log(newUser);
-  // console.log(newUser.body);
-  // console.log(newUser.body.id);
 
-  const token = signToken(req.body.id);
+  const token = signToken(newUser.id);
   res.status(201).json({
     status: 'success',
     token,
@@ -36,38 +29,19 @@ exports.login = catchAsync(async (req, res, next) => {
     return next(new AppError(`Please provide email and password!`, 400));
   }
   const user = await userService.getUserbyEmail(email);
-  // console.log(user);
 
-  if (!user || password !== user.password) {
+  if (!user) {
     return next(new AppError(`Incorrect email or password!`, 401));
   }
-  const token = signToken(req.body.id);
+  const isValidPassword = await bcrypt.compare(password, user.password);
+
+  if (!isValidPassword) {
+    return next(new AppError(`Incorrect email or password!`, 401));
+  }
+
+  const token = signToken(user.id);
   res.status(200).json({
     status: 'success',
     token,
   });
-});
-
-exports.protect = catchAsync(async (req, res, next) => {
-  let token;
-  if (
-    req.headers.authorization &&
-    req.headers.authorization.startsWith('Bearer')
-  ) {
-    token = req.headers.authorization.split(' ')[1];
-  }
-  console.log(token);
-
-  if (!token) {
-    return next(
-      new AppError(`You're not logged in! Please log in to get access.`, 401)
-    );
-  }
-  //verification step
-  //console.log(process.env.JWT_SECRET);
-
-  const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET); // not have a clear idea how it works
-  console.log(decoded);
-
-  next();
 });
