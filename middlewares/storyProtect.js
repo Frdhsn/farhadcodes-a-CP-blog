@@ -1,11 +1,11 @@
 const { promisify } = require('util');
 const jwt = require('jsonwebtoken');
-const db = require('../models/dbconnect');
+const Story = require('../models/storymodel');
 const catchAsync = require('../utils/catchAsync');
 const StoryService = require('../services/storyServices');
 const AppError = require('../utils/AppError');
 
-const Story = db.stories;
+//const Story = db.stories;
 const storyService = new StoryService(Story);
 
 exports.Protect = catchAsync(async (req, res, next) => {

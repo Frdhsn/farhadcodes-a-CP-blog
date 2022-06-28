@@ -1,10 +1,10 @@
-const db = require('../models/dbconnect');
+const User = require('../models/usermodel');
 const catchAsync = require('../utils/catchAsync');
 const UserService = require('../services/userServices');
 const AppError = require('../utils/AppError');
 const bcrypt = require('bcrypt');
 const { signToken } = require('../utils/generateToken');
-const User = db.users;
+//const User = db.users;
 const userService = new UserService(User);
 
 exports.signup = catchAsync(async (req, res) => {

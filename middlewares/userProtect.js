@@ -1,11 +1,11 @@
 const { promisify } = require('util');
 const jwt = require('jsonwebtoken');
-const db = require('../models/dbconnect');
+const User = require('../models/usermodel');
 const catchAsync = require('../utils/catchAsync');
 const UserService = require('../services/userServices');
 const AppError = require('../utils/AppError');
 
-const User = db.users;
+//const User = db.users;
 const userService = new UserService(User);
 
 exports.isAuthorized = catchAsync(async (req, res, next) => {
