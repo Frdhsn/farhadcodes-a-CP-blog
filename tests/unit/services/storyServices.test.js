@@ -58,4 +58,10 @@ describe('All tests of story service', () => {
     const { authorID, title, description, topic, difficulty } = mockValueStories[0];
     expect(story).toEqual({ authorID, title, description, topic, difficulty });
   });
+  test('Testing getAuthorIDbyStoryId', async () => {
+    jest.spyOn(StoryTable, 'findOne').mockReturnValue(mockValueStories[0].authorID);
+
+    const data = await storyService.getAuthorIdByStoryId(1);
+    expect(data).toBe(mockValueStories[0].authorID);
+  });
 });

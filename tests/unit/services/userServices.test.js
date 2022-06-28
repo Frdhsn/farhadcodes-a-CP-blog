@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 const UserTable = require('../../../models/usermodel');
 const UserService = require('../../../services/userServices');
 
@@ -26,12 +27,21 @@ const mockValueUsers = [
 
 describe('All tests of user service', () => {
   test('testing createUser', async () => {
+    jest.spyOn(bcrypt, 'hash').mockImplementation((x) => {
+      return x;
+    });
     jest.spyOn(UserTable, 'create').mockImplementation((x) => {
       return x;
     });
     const users = await userService.createUser(mockValueUsers[0]);
-    const { id, name, email, password } = mockValueUsers[0];
-    expect(users).toBe({ id, name, email, password });
+    expect(UserTable.create).toHaveBeenCalledTimes(1);
+    const { name, email, password } = mockValueUsers[0];
+    const newUser = { name, email, password };
+    expect(UserTable.create).toHaveBeenCalledWith(newUser);
+
+    expect(users).toEqual(newUser);
+    expect(bcrypt.hash).toHaveBeenCalledWith(mockValueUsers[0].password, 10);
+    expect(bcrypt.hash).toHaveBeenCalledTimes(1);
   });
   test('getAllUser', async () => {
     jest.spyOn(UserTable, 'findAll').mockReturnValue(mockValueUsers);
@@ -55,5 +65,11 @@ describe('All tests of user service', () => {
     jest.spyOn(UserTable, 'destroy').mockReturnValue();
     const user = await userService.deleteUser(1);
     expect(user).toBe();
+  });
+
+  test('getUserbyEmail', async () => {
+    jest.spyOn(UserTable, 'findOne').mockReturnValue(mockValueUsers[0]);
+    const user = await userService.getUserbyEmail(mockValueUsers[0].email);
+    expect(user).toBe(mockValueUsers[0]);
   });
 });
