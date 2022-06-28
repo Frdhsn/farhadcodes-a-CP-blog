@@ -2,15 +2,19 @@ require('dotenv').config();
 const express = require('express');
 const stories = require('./routes/storyRoutes');
 const users = require('./routes/userRoutes');
-const db = require('./models/dbconnect');
+//const db = require('./models/dbconnect');
+const db = require('./config/dbconfig');
+
 const AppError = require('./utils/AppError');
 const globalErrorHandler = require('./controllers/errorController');
 //const winston = require("winston/lib/winston/config");
 const app = express();
-db.sequelize.sync();
+
+//db.sequelize.sync();
 
 app.use(express.json());
 
+db();
 app.use('/api/v1/stories', stories);
 app.use('/api/v1/users', users);
 

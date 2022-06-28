@@ -1,10 +1,11 @@
-const db = require('../models/dbconnect');
+//const db = require('../models/dbconnect');
+const User = require('../models/usermodel');
 const UserService = require('../services/userServices');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/AppError');
 const contentNegotiate = require('../utils/sendResponse');
 
-const User = db.users;
+//const User = db.users;
 
 const userService = new UserService(User);
 

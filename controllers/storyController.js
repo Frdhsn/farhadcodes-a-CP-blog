@@ -1,10 +1,9 @@
-const db = require('../models/dbconnect');
+//const db = require('../models/dbconnect');
+const Story = require('../models/storymodel');
 const StoryService = require('../services/storyServices');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/AppError');
 const contentNegotiate = require('../utils/sendResponse');
-
-const Story = db.stories;
 
 const storyService = new StoryService(Story);
 
