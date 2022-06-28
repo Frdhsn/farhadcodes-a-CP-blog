@@ -23,12 +23,13 @@ class userServices {
   };
   // without password
   getAllUser = async () => {
-    const userData = await this.userTable.findAll({
-      attributes: {
-        exclude: ['password'],
-        // without password
-      },
-    });
+    // const userData = await this.userTable.findAll({
+    //   attributes: {
+    //     exclude: ['password'],
+    //     // without password
+    //   },
+    // });
+    const userData = await this.userTable.findAll();
     return userData;
   };
   updateUser = async (id, userBody) => {
