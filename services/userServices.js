@@ -16,6 +16,7 @@ class userServices {
     return userData;
   };
   getUser = async (id) => {
+    //console.log('Real', id);
     const userData = await this.userTable.findOne({
       where: { id },
     });
@@ -23,15 +24,17 @@ class userServices {
   };
   // without password
   getAllUser = async () => {
-    const userData = await this.userTable.findAll({
-      attributes: {
-        exclude: ['password'],
-        // without password
-      },
-    });
+    // const userData = await this.userTable.findAll({
+    //   attributes: {
+    //     exclude: ['password'],
+    //     // without password
+    //   },
+    // });
+    const userData = await this.userTable.findAll();
     return userData;
   };
   updateUser = async (id, userBody) => {
+    //console.log(`service update a asi`);
     const userData = await this.userTable.update(userBody, {
       where: { id },
     });

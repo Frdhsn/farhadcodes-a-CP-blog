@@ -1,10 +1,9 @@
-const db = require('../models/dbconnect');
+//const db = require('../models/dbconnect');
+const Story = require('../models/storymodel');
 const StoryService = require('../services/storyServices');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/AppError');
 const contentNegotiate = require('../utils/sendResponse');
-
-const Story = db.stories;
 
 const storyService = new StoryService(Story);
 
@@ -43,5 +42,8 @@ exports.deleteStory = catchAsync(async (req, res, next) => {
   if (!story) {
     return next(new AppError('No Story was found with that ID', 404));
   }
-  return res.status(204).send();
+  contentNegotiate.sendResponse(req, res, 204, {}, 'Story is Deleted');
+  //return res.status(204).send();
 });
+
+exports.storyService = storyService;
