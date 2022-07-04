@@ -65,3 +65,5 @@ describe('All tests of story service', () => {
     expect(data).toBe(mockValueStories[0].authorID);
   });
 });
+
+//test('test story service', () => {});

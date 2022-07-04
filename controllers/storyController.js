@@ -42,5 +42,8 @@ exports.deleteStory = catchAsync(async (req, res, next) => {
   if (!story) {
     return next(new AppError('No Story was found with that ID', 404));
   }
-  return res.status(204).send();
+  contentNegotiate.sendResponse(req, res, 204, {}, 'Story is Deleted');
+  //return res.status(204).send();
 });
+
+exports.storyService = storyService;

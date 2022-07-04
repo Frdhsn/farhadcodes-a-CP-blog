@@ -1,11 +1,8 @@
-//const db = require('../models/dbconnect');
 const User = require('../models/usermodel');
 const UserService = require('../services/userServices');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/AppError');
 const contentNegotiate = require('../utils/sendResponse');
-
-//const User = db.users;
 
 const userService = new UserService(User);
 
@@ -22,7 +19,6 @@ exports.getAllUser = catchAsync(async (req, res, next) => {
 });
 exports.updateUser = catchAsync(async (req, res, next) => {
   const userData = await userService.updateUser(req.params.id, req.body);
-
   if (!userData[0]) {
     return next(new AppError('No user was found with that ID', 404));
   }
@@ -33,5 +29,6 @@ exports.deleteUser = catchAsync(async (req, res, next) => {
   if (!userData) {
     return next(new AppError('No user was found with that ID', 404));
   }
-  return res.status(204).send();
+  contentNegotiate.sendResponse(req, res, 204, {}, 'User is Deleted!');
 });
+exports.userService = userService;

@@ -22,6 +22,7 @@ exports.sendTextResponse = (req, res, statusCode, data) => {
   return res.status(statusCode).send(toPlainText(JSON.parse(JSON.stringify(data))));
 };
 exports.sendResponse = (req, res, statusCode, data, message) => {
+  //console.log(`content nego real`);
   if (req.headers.accept == 'application/xml') this.sendXmlResponse(req, res, statusCode, data);
   else if (req.headers.accept == 'application/json') this.sendJsonResponse(req, res, statusCode, data, message);
   else if (req.headers.accept == 'text/plain') this.sendTextResponse(req, res, statusCode, data);
