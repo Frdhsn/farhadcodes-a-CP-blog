@@ -1,3 +1,4 @@
+
 const sequelize = require('../models/dbconnect');
 
 const db = async () => {
@@ -9,6 +10,6 @@ const db = async () => {
   } catch (error) {
     console.error('The database cannot be accessed:', error);
   }
-};
+});
 
 module.exports = db;

@@ -44,6 +44,7 @@ describe('All tests of user service', () => {
     expect(bcrypt.hash).toHaveBeenCalledTimes(1);
   });
   test('getAllUser', async () => {
+    //console.log(`check service`);
     jest.spyOn(UserTable, 'findAll').mockReturnValue(mockValueUsers);
     const users = await userService.getAllUser();
     expect(users).toBe(mockValueUsers);
@@ -73,3 +74,4 @@ describe('All tests of user service', () => {
     expect(user).toBe(mockValueUsers[0]);
   });
 });
+//test('test user service', () => {});
