@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1656927296173" clover="3.2.0">
-  <project timestamp="1656927296173" name="All files">
-    <metrics statements="138" coveredstatements="125" conditionals="22" coveredconditionals="13" methods="31" coveredmethods="26" elements="191" coveredelements="164" complexity="0" loc="138" ncloc="138" packages="4" files="10" classes="10"/>
+<coverage generated="1657040312515" clover="3.2.0">
+  <project timestamp="1657040312515" name="All files">
+    <metrics statements="138" coveredstatements="137" conditionals="22" coveredconditionals="21" methods="31" coveredmethods="31" elements="191" coveredelements="189" complexity="0" loc="138" ncloc="138" packages="4" files="10" classes="10"/>
     <package name="controllers">
       <metrics statements="53" coveredstatements="53" conditionals="12" coveredconditionals="12" methods="9" coveredmethods="9"/>
       <file name="storyController.js" path="D:\training\phase1\Node.js\farhadcodes-a-CP-blog\controllers\storyController.js">
@@ -140,7 +140,7 @@
       </file>
     </package>
     <package name="utils">
-      <metrics statements="31" coveredstatements="18" conditionals="10" coveredconditionals="1" methods="8" coveredmethods="3"/>
+      <metrics statements="31" coveredstatements="30" conditionals="10" coveredconditionals="9" methods="8" coveredmethods="8"/>
       <file name="appError.js" path="D:\training\phase1\Node.js\farhadcodes-a-CP-blog\utils\appError.js">
         <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="3" count="6" type="stmt"/>
@@ -159,27 +159,27 @@
         <line num="6" count="0" type="stmt"/>
       </file>
       <file name="sendResponse.js" path="D:\training\phase1\Node.js\farhadcodes-a-CP-blog\utils\sendResponse.js">
-        <metrics statements="20" coveredstatements="8" conditionals="8" coveredconditionals="0" methods="5" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="24" count="2" type="stmt"/>
-        <line num="26" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="27" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="28" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="29" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="30" count="0" type="stmt"/>
+        <metrics statements="20" coveredstatements="20" conditionals="8" coveredconditionals="8" methods="5" coveredmethods="5"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="27" count="3" type="stmt"/>
+        <line num="29" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="30" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="31" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="32" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="33" count="1" type="stmt"/>
       </file>
     </package>
   </project>
