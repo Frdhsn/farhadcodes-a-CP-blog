@@ -3,22 +3,34 @@ class storyService {
     this.storyTable = table;
   }
   async createStory(storyBody) {
-    const { id, title, description, authorID, topic, difficulty } = storyBody;
+    const { title, description, authorID, topic, difficulty } = storyBody;
     const newStory = {
-      id,
       title,
       description,
       authorID,
       topic,
       difficulty,
     };
+    console.log(`create story a asi @service before model func`);
 
+    console.log(newStory);
     const data = await this.storyTable.create(newStory);
+    console.log(`create story a asi @service after model func`);
+    console.log(data);
     return data;
   }
 
   async getAllStory() {
     const data = await this.storyTable.findAll();
+    return data;
+  }
+  async getAllStoryByAuthorID(id) {
+    console.log(id);
+    console.log(`getAllStoryByAuthorID a asi`);
+    const data = await this.storyTable.findAll({ where: { authorID: id } });
+
+    console.log(`getAllStoryByAuthorID a asi after`);
+    console.log(data);
     return data;
   }
 

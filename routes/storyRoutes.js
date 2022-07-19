@@ -4,7 +4,7 @@ const storyMiddleware = require('../middlewares/storyProtect');
 const userMiddleware = require('../middlewares/userProtect');
 // story protection
 router.route('/').post(userMiddleware.Protect, storyMiddleware.Protect, stories.createStory).get(stories.getAllStory);
-
+router.route('/user/:id').get(stories.getAllStoryByAuthorID);
 router
   .route('/:id')
   .get(stories.getStory)

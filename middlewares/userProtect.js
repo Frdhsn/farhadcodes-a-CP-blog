@@ -20,6 +20,8 @@ exports.isAuthorized = catchAsync(async (req, res, next) => {
 });
 
 exports.Protect = catchAsync(async (req, res, next) => {
+  console.log(`user protect a asi`);
+  console.log(req.body);
   let token;
   //1) getting token and check of its there
   if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
@@ -44,11 +46,12 @@ exports.Protect = catchAsync(async (req, res, next) => {
   }
 
   //4) check if user changed password after jwt was issued\
-  //console.log(`before assigning: `);
+  console.log(`before assigning: `);
   //console.log(req.user);
   req.user = freshUser;
   //console.log(`sudo`);
   //console.log(freshUser);
-  //console.log(`---------------------------end of protect!------------------------`);
+  console.log(req.body);
+  console.log(`---------------------------end of protect!------------------------`);
   next();
 });

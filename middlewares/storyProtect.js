@@ -9,6 +9,8 @@ const AppError = require('../utils/AppError');
 const storyService = new StoryService(Story);
 
 exports.Protect = catchAsync(async (req, res, next) => {
+  //console.log(`story protect a asi`);
+  //console.log(req.body);
   let token;
   //1) getting token and check of its there
   if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {

@@ -8,14 +8,29 @@ const contentNegotiate = require('../utils/sendResponse');
 const storyService = new StoryService(Story);
 
 exports.createStory = catchAsync(async (req, res, next) => {
+  //console.log(`create story a asi`);
+  //console.log(req.body);
   const story = await storyService.createStory(req.body);
 
+  //const data = await this.storyTable.findOne({ where: { id } });
+  //console.log(`create story a asi service er por`);
   contentNegotiate.sendResponse(req, res, 201, story, 'Story Created Successfully');
 });
 
 exports.getAllStory = catchAsync(async (req, res, next) => {
   const stories = await storyService.getAllStory();
 
+  contentNegotiate.sendResponse(req, res, 200, stories, 'Stories are fetched');
+});
+exports.getAllStoryByAuthorID = catchAsync(async (req, res, next) => {
+  //console.log(`controller a asi`);
+  //console.log(req.params);
+  //console.log(req.params.id);
+
+  //console.log(`controller a asi: before calling service`);
+  const stories = await storyService.getAllStoryByAuthorID(req.params.id);
+
+  //console.log(`controller a asi: after`);
   contentNegotiate.sendResponse(req, res, 200, stories, 'Stories are fetched');
 });
 

@@ -25,7 +25,7 @@ const story = sequelize.define('stories', {
     },
   },
   description: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(10000),
     allowNull: false,
     validate: {
       notEmpty: true,

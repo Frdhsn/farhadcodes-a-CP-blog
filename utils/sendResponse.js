@@ -30,5 +30,6 @@ exports.sendResponse = (req, res, statusCode, data, message) => {
   else if (req.headers.accept == 'application/json') this.sendJsonResponse(req, res, statusCode, data, message);
   else if (req.headers.accept == 'text/plain') this.sendTextResponse(req, res, statusCode, data);
   else if (req.headers.accept == 'text/html') this.sendTextHtmlResponse(req, res, statusCode, data);
-  else if (req.headers.accept == 'default') this.sendJsonResponse(req, res, statusCode, data, message);
+  //else if (req.headers.accept == 'default') this.sendJsonResponse(req, res, statusCode, data, message);
+  else this.sendJsonResponse(req, res, statusCode, data, message);
 };
