@@ -39,6 +39,8 @@ class storyService {
     return data;
   }
   async updateStory(id, storyBody) {
+    console.log(`updatestory service a asi`);
+    console.log('storybody' + storyBody);
     const { title, description, topic, difficulty } = storyBody;
     const temp = {
       title,

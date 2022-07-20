@@ -44,6 +44,9 @@ exports.getStory = catchAsync(async (req, res, next) => {
 });
 
 exports.updateStory = catchAsync(async (req, res, next) => {
+  console.log(`updatestory te asi`);
+  console.log(`req.params.id ${req.params.id}`);
+  console.log(req.body);
   const story = await storyService.updateStory(req.params.id, req.body);
   if (!story[0]) {
     return next(new AppError('No Story was found with that ID', 404));
